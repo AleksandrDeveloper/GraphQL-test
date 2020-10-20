@@ -8,9 +8,10 @@ const app = express();
 const PORT = 3005;
 mongoose.connect('mongodb+srv://aleksDev:20021224@node-1.aytwk.mongodb.net/GraphQL?retryWrites=true&w=majority',{
   useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(()=>console.log('ddddddddddd'))
-.catch(e=>console.log(e))
+  useUnifiedTopology: true,
+  useFindAndModify: false
+}).then(()=>console.log('================================================='))
+  .catch(e=>console.log(e))
 
 
 app.use('/graphql', graphqlHTTP({
@@ -21,3 +22,4 @@ app.use('/graphql', graphqlHTTP({
 app.listen(PORT, err => {
   err ? console.log(err) : console.log('Server started!');
 });
+ 
